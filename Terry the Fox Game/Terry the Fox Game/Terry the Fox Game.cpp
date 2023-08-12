@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <stdlib.h>
+#include <fstream>
 
 // It's my first ever game!
 
@@ -11,8 +12,20 @@ int main() {
     std::cout << "  |_| |___|_| |_| |_  |    |_| |_|_|___|  |__|  |___|_,_|\n";
     std::cout << "                  |___|                                  \n";
     std::cout << "By: Nahyree\n\n";
+    std::ifstream f("NahyreeAchievement.txt");
+    if (f.is_open())
+        std::cout << f.rdbuf() << "\n";
+    std::ifstream g("SmartbuttAchievement.txt");
+    if (g.is_open())
+        std::cout << g.rdbuf() << "\n";
+    std::ifstream h("LuckyShotAchievement.txt");
+    if (h.is_open())
+        std::cout << h.rdbuf() << "\n";
+    std::ifstream i("WinnerAchievement.txt");
+    if (i.is_open())
+        std::cout << i.rdbuf() << "\n";
     std::cout << "Input your name: ";
-  
+ 
     std::string player_name;
     std::cin >> player_name;
     std::cout << "\nIs " << player_name << " your name?: ";
@@ -31,8 +44,11 @@ int main() {
         }
     if (player_name == "Nahyree" || player_name == "nahyree") {
         std::cout << "\nWoah your name is Nahyree too? That's so cool!\n";
+        std::ofstream myfile;
+        myfile.open("NahyreeAchievement.txt");
+        myfile << "Copycat Achievement Get!\n";
+        myfile.close();
     }
-
 
     std::cout << "\nGreat! Nice to meet you " << player_name << ". It's time for an adventure!\n\n";
     std::cout << "Terry is a young fox from the Briar Woods, a dense forest located close to the human town of Marehees.\n\n";
@@ -70,6 +86,12 @@ int main() {
         std::cout << "\nWhat is so fragile that saying it's name breaks it?: ";
         std::string answer;
         std::cin >> answer;
+        if (answer == "what" || answer == "What") {
+            std::ofstream myfile;
+            myfile.open("SmartbuttAchievement.txt");
+            myfile << "Smartbutt Achievement Get!\n";
+            myfile.close();
+        }
 
         while (answer != "silence" && answer != "Silence") {
             std::cout << "\nWhat is so fragile that saying it's name breaks it?: ";
@@ -91,12 +113,17 @@ int main() {
             std::cout << "\nYou successfully snuck past the guard!\n\n";
         }
         else {
+            srand(time(NULL));
             int success = rand() % 10 + 1;
             if (success > 9) {
-                std::cout << "Terry successfully attacked the guard and knocked him unconscious!!!\n\n";
+                std::cout << "\nTerry successfully attacked the guard and knocked him unconscious!!!\n\n";
+                std::ofstream myfile;
+                myfile.open("LuckyShotAchievement.txt");
+                myfile << "Lucky Shot Achievement Get!\n";
+                myfile.close();
             }
             else {
-                std::cout << "Terry's small body was too weak to knock out the guard. You were captured. Game Over!\n\n";
+                std::cout << "\nTerry's small body was too weak to knock out the guard. You were captured. Game Over!\n\n";
                 exit(0); {
                 }
             }
@@ -114,7 +141,7 @@ int main() {
         std::cin >> finalchoice;
     }
     if (finalchoice == 1) {
-        std::cout << "You allow Terry to be caught, the traccifers place him inside a cage\n\n";
+        std::cout << "\nYou allow Terry to be caught, the traccifers place him inside a cage\n\n";
         std::cout << "There is no way to open the cage from the inside, Terry is brought inside the town and sold. Game Over!\n\n";
         exit(0); {
         }
@@ -124,5 +151,9 @@ int main() {
         std::cout << "In the confusion, Terry springs the lock on Ophelia's cage and the two of them escape\n\n";
         std::cout << "Ophelia runs up to you and thanks you for your part in freeing her\n\n";
         std::cout << "You win! Congrats on reuniting Terry with his fiancee Ophelia!\n\n";
+        std::ofstream myfile;
+        myfile.open("WinnerAchievement.txt");
+        myfile << "Winner Achievement Get!\n";
+        myfile.close();
     }
     }

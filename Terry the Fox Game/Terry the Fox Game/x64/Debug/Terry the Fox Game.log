@@ -1,2 +1,3 @@
 ﻿  Terry the Fox Game.cpp
+C:\Users\austi\source\repos\Terry the Fox Game\Terry the Fox Game\Terry the Fox Game.cpp(116,23): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Terry the Fox Game.vcxproj -> C:\Users\austi\source\repos\Terry the Fox Game\x64\Debug\Terry the Fox Game.exe
